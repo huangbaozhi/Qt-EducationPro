@@ -1,6 +1,9 @@
 #include "interactiveteachingwidget.h"
 
 #include <QLabel>
+#include <QPushButton>
+#include <QHBoxLayout>
+#include <QVBoxLayout>
 
 /**
  * @brief InteractiveTeachingWidget::InteractiveTeachingWidget
@@ -10,8 +13,6 @@
 
 InteractiveTeachingWidget::InteractiveTeachingWidget(QWidget *parent)
     : QWidget(parent)
-//    , player(new QMediaPlayer)
-//    , videoWidget(new QVideoWidget)
 {
     resize(900, 500);
     initUi();
@@ -19,23 +20,25 @@ InteractiveTeachingWidget::InteractiveTeachingWidget(QWidget *parent)
 
 InteractiveTeachingWidget::~InteractiveTeachingWidget()
 {
-    delete player;
-    delete videoWidget;
 }
 
 void InteractiveTeachingWidget::initUi()
 {
-    //this->setFixedSize(900, 500);
+    QWidget *pLeftWgt = new QWidget(this);
+    QVBoxLayout *pLeftLyt = new QVBoxLayout(pLeftWgt);
+    pLeftLyt->setContentsMargins(0, 0, 0, 0);
 
-    QLabel *pLabel = new QLabel(this);
-    pLabel->setText("互动式教学");
+    m_pCourseCenterBtn = new QPushButton(this);
+    m_pCourseCenterBtn->setText("课程中心");
+    m_pDistanceLearningBtn = new QPushButton(this);
+    m_pDistanceLearningBtn->setText("远程教学");
+    m_pAiLearningBtn = new QPushButton(this);
+    m_pAiLearningBtn->setText("Ai教学");
+    m_pReturnBtn = new QPushButton(this);
+    m_pReturnBtn->setText("返回");
 
-//    player = new QMediaPlayer(this);
-//    videoWidget = new QVideoWidget(this);
-
-//    player->setVideoOutput(videoWidget);
-//    videoWidget->setGeometry(0, 0, this->width(), this->height() * 3 / 4);
-//    player->setMedia(QUrl::fromLocalFile("E:\\download\\chrome\\12488852_3840_2160_30fps.mp4"));
-//    //player->setMedia(QUrl::fromLocalFile("E:/download/chrome/1.mp4"));
-//    player->play();
+    pLeftLyt->addWidget(m_pCourseCenterBtn);
+    pLeftLyt->addWidget(m_pDistanceLearningBtn);
+    pLeftLyt->addWidget(m_pAiLearningBtn);
+    pLeftLyt->addWidget(m_pReturnBtn);
 }

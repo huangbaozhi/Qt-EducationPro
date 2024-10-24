@@ -34,6 +34,7 @@ private:
     QPushButton *m_pCourseCenterBtn;
     QPushButton *m_pDistanceLearningBtn;
     QPushButton *m_pAiLearningBtn;
+    QPushButton *m_pReturnBtn;
 
     DistanceLearningWidget *m_pDistanceLearningWidget;
     CourseCenterWidget *m_pCourseCenterWidget;

@@ -11,9 +11,12 @@ CONFIG += c++11
 
 SOURCES += \
     View/Components/pushbutton.cpp \
-    View/ailearningwidget.cpp \
-    View/coursecenterwidget.cpp \
-    View/distancelearningwidget.cpp \
+#    View/ailearningwidget.cpp \
+#    View/coursecenterwidget.cpp \
+#    View/distancelearningwidget.cpp \
+    View/SubView/ailearningwidget.cpp \
+    View/SubView/coursecenterwidget.cpp \
+    View/SubView/distancelearningwidget.cpp \
     View/interactiveteachingwidget.cpp \
     View/learningresourceswidget.cpp \
     View/menubarwidget.cpp \
@@ -24,9 +27,12 @@ SOURCES += \
 
 HEADERS += \
     View/Components/pushbutton.h \
-    View/ailearningwidget.h \
-    View/coursecenterwidget.h \
-    View/distancelearningwidget.h \
+#    View/ailearningwidget.h \
+#    View/coursecenterwidget.h \
+#    View/distancelearningwidget.h \
+    View/SubView/ailearningwidget.h \
+    View/SubView/coursecenterwidget.h \
+    View/SubView/distancelearningwidget.h \
     View/interactiveteachingwidget.h \
     View/learningresourceswidget.h \
     View/menubarwidget.h \
