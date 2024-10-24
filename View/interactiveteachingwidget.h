@@ -20,9 +20,16 @@ public:
      ~InteractiveTeachingWidget();
 
 signals:
+    void signReturn();
 
 private:
     void initUi();
+    void connectFun();
+
+public slots:
+
+private slots:
+    void slotReturn();
 
 private:
     QMediaPlayer *player;

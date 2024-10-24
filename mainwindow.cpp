@@ -12,6 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
     resize(900, 600);
+
     initUi();
     connectFun();
 }
@@ -29,6 +30,7 @@ void MainWindow::initUi()
     pMainLyt->setContentsMargins(0, 0, 0, 0);
 
     QWidget *pBtnWgt = new QWidget();
+    m_pBtnWgt = pBtnWgt;
     pBtnWgt->setFixedSize(900, 567);
     QGridLayout *pGridLyt = new QGridLayout(pBtnWgt);
     pGridLyt->setContentsMargins(0, 0, 0, 0);
@@ -81,6 +83,8 @@ void MainWindow::connectFun()
     connect(m_pSimulationExperimentBtn, &QPushButton::clicked, this, &MainWindow::slotSwitchPage);
     connect(m_pOnlineTestBtn, &QPushButton::clicked, this, &MainWindow::slotSwitchPage);
     connect(m_pLearningResourcesBtn, &QPushButton::clicked, this, &MainWindow::slotSwitchPage);
+
+    connect(m_pInteractiveTeachingWidget, &InteractiveTeachingWidget::signReturn, this, &MainWindow::slotReturnCurrentPage);
 }
 
 void MainWindow::slotSwitchPage()
@@ -108,5 +112,10 @@ void MainWindow::slotSwitchPage()
     {
         m_pStackedWidget->setCurrentWidget(m_pLearningResourcesWidget);
     }
+}
+
+void MainWindow::slotReturnCurrentPage()
+{
+    m_pStackedWidget->setCurrentWidget(m_pBtnWgt);
 }
 

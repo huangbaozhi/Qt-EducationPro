@@ -11,6 +11,12 @@ public:
 
 signals:
 
+private:
+    void initUi();
+
+private:
+
+
 };
 
 #endif // COURSECENTERWIDGET_H

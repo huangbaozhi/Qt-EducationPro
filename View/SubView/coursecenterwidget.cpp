@@ -4,3 +4,8 @@ CourseCenterWidget::CourseCenterWidget(QWidget *parent) : QWidget(parent)
 {
 
 }
+
+void CourseCenterWidget::initUi()
+{
+
+}

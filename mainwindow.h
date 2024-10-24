@@ -29,6 +29,7 @@ private:
 
 private slots:
     void slotSwitchPage();
+    void slotReturnCurrentPage();
 
 private:
     //Ui::MainWindow *ui;
@@ -45,6 +46,8 @@ private:
     QPushButton *m_pSimulationExperimentBtn;
     QPushButton *m_pOnlineTestBtn;
     QPushButton *m_pLearningResourcesBtn;
+
+    QWidget *m_pBtnWgt;
 
 };
 #endif // MAINWINDOW_H
