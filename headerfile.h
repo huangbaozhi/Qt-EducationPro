@@ -9,8 +9,15 @@
 #include "View/simulationexperimentwidget.h"
 #include "View/menubarwidget.h"
 
+// sub widget
+#include "View/SubView/ailearningwidget.h"
+#include "View/SubView/coursecenterwidget.h"
+#include "View/SubView/distancelearningwidget.h"
+
 // component
 #include "View/Components/pushbutton.h"
+
+
 
 
 #endif // HEADERFILE_H

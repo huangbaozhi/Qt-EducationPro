@@ -11,6 +11,9 @@ public:
 
 signals:
 
+private:
+    void initUi();
+
 };
 
 #endif // DISTANCELEARNINGWIDGET_H

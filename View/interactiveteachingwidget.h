@@ -27,6 +27,7 @@ private:
     void connectFun();
 
 public slots:
+    void slotSwitchPage();
 
 private slots:
     void slotReturn();
@@ -46,6 +47,8 @@ private:
     DistanceLearningWidget *m_pDistanceLearningWidget;
     CourseCenterWidget *m_pCourseCenterWidget;
     AiLearningWidget *m_pAiLearningWidget;
+
+    QStackedWidget *m_pStackedWidget;
 
 };
 
