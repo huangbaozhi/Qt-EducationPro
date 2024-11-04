@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/button/closeBtn.png</file>
+        <file>images/button/logo.png</file>
+        <file>images/button/maximizationBtn.png</file>
+        <file>images/button/minimizationBtn.png</file>
+        <file>images/button/setBtn.png</file>
+        <file>images/button/aiLearningBtn.png</file>
+        <file>images/button/courseCenterBtn.png</file>
+        <file>images/button/remoteCenterBtn.png</file>
+        <file>images/button/returnBtn.png</file>
+        <file>images/button/aiLearningBtn_2.png</file>
+        <file>images/button/courseCenterBtn_2.png</file>
+        <file>images/button/remoteCenterBtn_2.png</file>
+        <file>images/button/returnBtn_2.png</file>
+    </qresource>
+</RCC>

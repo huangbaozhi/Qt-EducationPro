@@ -5,24 +5,45 @@ PushButton::PushButton(QWidget *parent) : QPushButton(parent)
 
 }
 
-PushButton::PushButton(const QString &color, const QString &text, QWidget *parent) : QPushButton(text, parent)
+PushButton::PushButton(const QString &style, const QString &color, const QString &text, QWidget *parent) : QPushButton(text, parent)
 {
     QColor darkerColor = QColor(color).darker(150);
     QColor lighterColor = QColor(color).lighter(150);
 
     QString styleSheet = QString(R"(
         PushButton {
-            background-color: %1;
+            background-image: url(%1);
+            background-color: %2;
             border: none;
-            border-radius: %2px; /* 圆形 */
+            border-radius: %3px; /* 圆形 */
         }
         PushButton:pressed {
-            background-color: %3; /* 按下时的颜色，稍微深一点 */
+            background-color: %4; /* 按下时的颜色，稍微深一点 */
         }
         PushButton:hover {
-            background-color: %4; /* 鼠标悬停时的颜色，稍微浅一点 */
+            background-color: %5; /* 鼠标悬停时的颜色，稍微浅一点 */
         }
-    )").arg(color).arg(50).arg(darkerColor.name()).arg(lighterColor.name());
+    )").arg(style).arg(color).arg(50).arg(darkerColor.name()).arg(lighterColor.name());
+
+    setStyleSheet(styleSheet);
+}
+
+PushButton::PushButton(const QString &style, QWidget *parent)
+{
+    QString styleSheet = QString(R"(
+        PushButton {
+            background-image: url(:/images/button/closeBtn.png);
+            background-color: %2;
+            border: none;
+            border-radius: 5px;
+        }
+        PushButton:pressed {
+            background-color: %4;
+        }
+        PushButton:hover {
+            background-color: %5;
+        }
+    )").arg(style);
 
     setStyleSheet(styleSheet);
 }

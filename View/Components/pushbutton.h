@@ -11,7 +11,9 @@ class PushButton : public QPushButton
 public:
     explicit PushButton(QWidget *parent = nullptr);
 
-    explicit PushButton(const QString &color, const QString &text, QWidget *parent = nullptr);
+    explicit PushButton(const QString &style, const QString &color, const QString &text, QWidget *parent = nullptr);
+
+    explicit PushButton(const QString &style,  QWidget *parent = nullptr);
 
 signals:
 

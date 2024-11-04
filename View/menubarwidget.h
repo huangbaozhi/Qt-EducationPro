@@ -13,9 +13,14 @@ public:
     explicit MenuBarWidget(QWidget *parent = nullptr);
 
 signals:
+    void signSeted();
+    void signMaximizationed();
+    void signMinimizationed();
+    void signCloseed();
 
 private:
     void initUi();
+    void connectFun();
 
 private:
     QPushButton *m_pCloseBtn;

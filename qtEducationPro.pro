@@ -11,9 +11,6 @@ CONFIG += c++11
 
 SOURCES += \
     View/Components/pushbutton.cpp \
-#    View/ailearningwidget.cpp \
-#    View/coursecenterwidget.cpp \
-#    View/distancelearningwidget.cpp \
     View/SubView/ailearningwidget.cpp \
     View/SubView/coursecenterwidget.cpp \
     View/SubView/distancelearningwidget.cpp \
@@ -27,9 +24,6 @@ SOURCES += \
 
 HEADERS += \
     View/Components/pushbutton.h \
-#    View/ailearningwidget.h \
-#    View/coursecenterwidget.h \
-#    View/distancelearningwidget.h \
     View/SubView/ailearningwidget.h \
     View/SubView/coursecenterwidget.h \
     View/SubView/distancelearningwidget.h \
@@ -48,3 +42,6 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resource.qrc

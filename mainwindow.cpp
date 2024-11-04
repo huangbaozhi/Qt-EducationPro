@@ -35,16 +35,16 @@ void MainWindow::initUi()
     QGridLayout *pGridLyt = new QGridLayout(pBtnWgt);
     pGridLyt->setContentsMargins(0, 0, 0, 0);
 
-    m_pInteractiveTeachingBtn = new PushButton("#ffc0cb", "Pink", this);
+    m_pInteractiveTeachingBtn = new PushButton("", "#ffc0cb", "Pink", this);
     m_pInteractiveTeachingBtn->setText("互动式教学");
 
-    m_pSimulationExperimentBtn = new PushButton("#ffff00", "Yellow", this);
+    m_pSimulationExperimentBtn = new PushButton("", "#ffff00", "Yellow", this);
     m_pSimulationExperimentBtn->setText("模拟实验");
 
-    m_pOnlineTestBtn = new PushButton("#0000ff", "Blue", this);
+    m_pOnlineTestBtn = new PushButton("", "#0000ff", "Blue", this);
     m_pOnlineTestBtn->setText("在线测试");
 
-    m_pLearningResourcesBtn = new PushButton("#008000", "Green", this);
+    m_pLearningResourcesBtn = new PushButton("", "#008000", "Green", this);
     m_pLearningResourcesBtn->setText("学习资源管理");
 
     m_pInteractiveTeachingBtn->setFixedSize(250, 250); // 设置固定尺寸
@@ -79,6 +79,8 @@ void MainWindow::initUi()
 
 void MainWindow::connectFun()
 {
+    connect(m_pMenuBarWidget, &MenuBarWidget::signCloseed, this, &MainWindow::close);
+
     connect(m_pInteractiveTeachingBtn, &QPushButton::clicked, this, &MainWindow::slotSwitchPage);
     connect(m_pSimulationExperimentBtn, &QPushButton::clicked, this, &MainWindow::slotSwitchPage);
     connect(m_pOnlineTestBtn, &QPushButton::clicked, this, &MainWindow::slotSwitchPage);

@@ -21,7 +21,8 @@ CourseCenterWidget::CourseCenterWidget(QWidget *parent)
     , isPlaying(false)
 {
 
-    //resize(900, 500);
+    resize(900, 500);
+    initUi();
 
 }
 
