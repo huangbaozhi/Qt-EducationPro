@@ -8,6 +8,7 @@
 #include <QMediaPlayer>
 #include <QVideoWidget>
 #include <QVBoxLayout>
+#include <QGridLayout>
 
 /**
  * @brief CourseCenterWidget::CourseCenterWidget
@@ -28,54 +29,50 @@ CourseCenterWidget::CourseCenterWidget(QWidget *parent)
 
 void CourseCenterWidget::initUi()
 {
-    // 初始化视频播放起和视频显示组件
-    player = new QMediaPlayer(this);
-    videoWidget = new QVideoWidget(this);
-    player->setVideoOutput(videoWidget);
+    QWidget *pMainWgt = new QWidget(this);
+    pMainWgt->setFixedSize(900, 500);
+    QGridLayout *pMainGridLyt = new QGridLayout(pMainWgt);
 
-    // 初始化视频封面和标题显示
-    videoLabel = new QLabel(this);
-    //videoLabel->setStyleSheet("QLabel{background-color:red;}");
-    videoLabel->setAlignment(Qt::AlignCenter);
-    videoLabel->setFixedSize(640, 360);
+    QWidget *pVideo1 = new QWidget(this);
+    pVideo1->setFixedSize(220, 120);
+    pVideo1->setStyleSheet("QWidget{background-color:red;border-radius: 10px;}");
 
-    // 初始化播放/暂停播放
-    playPauseButton = new QPushButton("Play", this);
+    QWidget *pVideo2= new QWidget(this);
+    pVideo2->setFixedSize(220, 120);
+    pVideo2->setStyleSheet("QWidget{background-color:red;border-radius: 10px;}");
 
-    // 初始化退出按钮
-    exitButton = new QPushButton("Exit", this);
+    QWidget *pVideo3 = new QWidget(this);
+    pVideo3->setFixedSize(220, 120);
+    pVideo3->setStyleSheet("QWidget{background-color:red;border-radius: 10px;}");
 
-    // 初始化进度条
-    videoSlider = new QSlider(Qt::Horizontal, this);
-    videoSlider->setRange(0, 0);
+    QWidget *pVideo4 = new QWidget(this);
+    pVideo4->setFixedSize(220, 120);
+    pVideo4->setStyleSheet("QWidget{background-color:red;border-radius: 10px;}");
 
-    // 布局设置
-    QWidget *pMainLyt = new QWidget(this);
-    pMainLyt->setFixedSize(900, 500);
-    QVBoxLayout *mainLayout = new QVBoxLayout(pMainLyt);
-    mainLayout->addWidget(videoLabel);
-    mainLayout->addWidget(playPauseButton);
-    mainLayout->addWidget(videoSlider);
-    mainLayout->addWidget(exitButton);
-    setLayout(mainLayout);
+    QWidget *pVideo5 = new QWidget(this);
+    pVideo5->setFixedSize(220, 120);
+    pVideo5->setStyleSheet("QWidget{background-color:red;border-radius: 10px;}");
+
+    QWidget *pVideo6 = new QWidget(this);
+    pVideo6->setFixedSize(220, 120);
+    pVideo6->setStyleSheet("QWidget{background-color:red;border-radius: 10px;}");
+
+    pMainGridLyt->addWidget(pVideo1, 1, 1);
+    pMainGridLyt->addWidget(pVideo2, 1, 2);
+    pMainGridLyt->addWidget(pVideo3, 1, 3);
+    pMainGridLyt->addWidget(pVideo4, 2, 1);
+    pMainGridLyt->addWidget(pVideo5, 2, 2);
+    pMainGridLyt->addWidget(pVideo6, 2, 3);
+
+    setLayout(pMainGridLyt);
 }
 
 void CourseCenterWidget::connectFun()
 {
-    connect(playPauseButton, &QPushButton::clicked, this, &CourseCenterWidget::onPlayPauseClicked);
-    connect(exitButton, &QPushButton::clicked, this, &CourseCenterWidget::onExitClicked);
-    connect(videoSlider, &QSlider::sliderMoved, this, &CourseCenterWidget::onSliderMoved);
-    connect(player, &QMediaPlayer::positionChanged, this, &CourseCenterWidget::onPositionChanged);
-    connect(player, &QMediaPlayer::durationChanged, this, &CourseCenterWidget::onDurationChanged);
 }
 
 void CourseCenterWidget::onVideoClicked()
 {
-    // 设置视频源并显示视频封面
-    QString videoPath = "E:/download/chrome/12488852_3840_2160_30fps.mp4"; // 替换为视频文件路径
-    player->setMedia(QUrl::fromLocalFile(videoPath));
-    videoLabel->setPixmap(QPixmap("C:/Users/Admin/Pictures/Saved Pictures/11.jpg")); // 替换为视频封面路径
-    stackedWidget->setCurrentIndex(1); // 显示视频播放界面
 }
 
 void CourseCenterWidget::onPlayPauseClicked()
@@ -92,23 +89,20 @@ void CourseCenterWidget::onPlayPauseClicked()
 
 void CourseCenterWidget::onSliderMoved(int position)
 {
-    player->setPosition(position);
+
 }
 
 void CourseCenterWidget::onPositionChanged(qint64 position)
 {
-    videoSlider->setValue(position);
+
 }
 
 void CourseCenterWidget::onDurationChanged(qint64 duration)
 {
-    this->duration = duration;
-    videoSlider->setRange(0, duration);
+
 }
 
 void CourseCenterWidget::onExitClicked()
 {
-    player->stop();
-    videoLabel->clear();
-    stackedWidget->setCurrentIndex(0); // 返回到视频封面界面
+
 }

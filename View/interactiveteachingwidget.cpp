@@ -30,14 +30,18 @@ InteractiveTeachingWidget::~InteractiveTeachingWidget()
 void InteractiveTeachingWidget::initUi()
 {
     QWidget *pMainWgt = new QWidget(this);
-    //QSplitter *pMainSplitter = new QSplitter(pMainWgt);
     QHBoxLayout *pMainLyt = new QHBoxLayout(pMainWgt);
 
 
     QWidget *pLeftWgt = new QWidget(this);
-    QVBoxLayout *pLeftLyt = new QVBoxLayout(pLeftWgt);
-    pLeftLyt->setContentsMargins(0, 0, 0, 0);
+    pLeftWgt->setFixedSize(150, 500);
+    pLeftWgt->setStyleSheet("QWidget{background-color: #FCFCFC; border: none; border-radius: 10px;}");
 
+    QVBoxLayout *pLeftLyt = new QVBoxLayout(pLeftWgt);
+    pLeftLyt->setContentsMargins(10, 10, 0, 0);
+
+    QHBoxLayout *pCourseCenterLyt = new QHBoxLayout();
+    pCourseCenterLyt->setContentsMargins(0, 0, 0, 0);
     m_pCourseCenterBtn = new QPushButton(this);
     m_pCourseCenterBtn->setText("课程中心");
     m_pCourseCenterBtn->setStyleSheet("QPushButton{qproperty-icon: url(:/images/button/courseCenterBtn.png) center;"
@@ -49,7 +53,11 @@ void InteractiveTeachingWidget::initUi()
                                       "color: #243627;"
                                       "line-height: 38px;"
                                       "}");
+    pCourseCenterLyt->addWidget(m_pCourseCenterBtn);
+    pCourseCenterLyt->addStretch();
 
+    QHBoxLayout *pDistanceLearningLyt = new QHBoxLayout();
+    pDistanceLearningLyt->setContentsMargins(0, 0, 0, 0);
     m_pDistanceLearningBtn = new QPushButton(this);
     m_pDistanceLearningBtn->setText("远程教学");
     m_pDistanceLearningBtn->setStyleSheet("QPushButton{qproperty-icon: url(:/images/button/remoteCenterBtn.png) center; "
@@ -61,6 +69,8 @@ void InteractiveTeachingWidget::initUi()
                                           "color: #243627;"
                                           "line-height: 38px;"
                                           "}");
+    pDistanceLearningLyt->addWidget(m_pDistanceLearningBtn);
+    pDistanceLearningLyt->addStretch();
 
     QHBoxLayout *pAiLearningLyt = new QHBoxLayout();
     pAiLearningLyt->setContentsMargins(0, 0, 0, 0);
@@ -94,11 +104,11 @@ void InteractiveTeachingWidget::initUi()
     pReturnLyt->addWidget(m_pReturnBtn);
     pReturnLyt->addStretch();
 
-    pLeftLyt->addWidget(m_pCourseCenterBtn);
-    pLeftLyt->addWidget(m_pDistanceLearningBtn);
-    //pLeftLyt->addWidget(m_pAiLearningBtn);
+//    pLeftLyt->addWidget(m_pCourseCenterBtn);
+//    pLeftLyt->addWidget(m_pDistanceLearningBtn);
+    pLeftLyt->addLayout(pCourseCenterLyt);
+    pLeftLyt->addLayout(pDistanceLearningLyt);
     pLeftLyt->addLayout(pAiLearningLyt);
-    //pLeftLyt->addWidget(m_pReturnBtn);
     pLeftLyt->addLayout(pReturnLyt);
     pLeftLyt->addStretch();
 
@@ -107,15 +117,12 @@ void InteractiveTeachingWidget::initUi()
     m_pAiLearningWidget = new AiLearningWidget(this);
 
     m_pStackedWidget = new QStackedWidget(this);
-    m_pStackedWidget->addWidget(m_pDistanceLearningWidget);
     m_pStackedWidget->addWidget(m_pCourseCenterWidget);
+    m_pStackedWidget->addWidget(m_pDistanceLearningWidget);
     m_pStackedWidget->addWidget(m_pAiLearningWidget);
 
     pMainLyt->addWidget(pLeftWgt);
     pMainLyt->addWidget(m_pStackedWidget);
-
-//    pMainSplitter->addWidget(pLeftWgt);
-//    pMainSplitter->addWidget(m_pStackedWidget);
 }
 
 void InteractiveTeachingWidget::connectFun()

@@ -42,6 +42,11 @@ private:
     qint64 duration;
     bool isPlaying;
 
+//    QMediaPlayer *player;
+//    QVideoWidget *videoWidget;
+    QLabel *titleLabel;
+    QLabel *timeLabel;
+
 
 };
 

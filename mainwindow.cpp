@@ -12,6 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
     resize(900, 600);
+    setStyleSheet("background-color:#E0E6F6;");
 
     initUi();
     connectFun();
