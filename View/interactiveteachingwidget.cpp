@@ -6,6 +6,7 @@
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QStackedWidget>
+#include <QSplitter>
 
 /**
  * @brief InteractiveTeachingWidget::InteractiveTeachingWidget
@@ -29,6 +30,7 @@ InteractiveTeachingWidget::~InteractiveTeachingWidget()
 void InteractiveTeachingWidget::initUi()
 {
     QWidget *pMainWgt = new QWidget(this);
+    //QSplitter *pMainSplitter = new QSplitter(pMainWgt);
     QHBoxLayout *pMainLyt = new QHBoxLayout(pMainWgt);
 
 
@@ -60,8 +62,10 @@ void InteractiveTeachingWidget::initUi()
                                           "line-height: 38px;"
                                           "}");
 
+    QHBoxLayout *pAiLearningLyt = new QHBoxLayout();
+    pAiLearningLyt->setContentsMargins(0, 0, 0, 0);
     m_pAiLearningBtn = new QPushButton(this);
-    m_pAiLearningBtn->setText("A I   教学");
+    m_pAiLearningBtn->setText("AI    教学");
     m_pAiLearningBtn->setStyleSheet("QPushButton{qproperty-icon: url(:/images/button/aiLearningBtn.png) center;"
                                     "qproperty-iconSize: 24px 24px;"
                                     "border: 0px;"
@@ -71,9 +75,13 @@ void InteractiveTeachingWidget::initUi()
                                     "color: #243627;"
                                     "line-height: 38px;"
                                     "}");
+    pAiLearningLyt->addWidget(m_pAiLearningBtn);
+    pAiLearningLyt->addStretch();
 
+    QHBoxLayout *pReturnLyt = new QHBoxLayout();
+    pReturnLyt->setContentsMargins(0, 0, 0, 0);
     m_pReturnBtn = new QPushButton(this);
-    m_pReturnBtn->setText("返       回");
+    m_pReturnBtn->setText("返        回");
     m_pReturnBtn->setStyleSheet("QPushButton{qproperty-icon: url(:/images/button/returnBtn.png) center;"
                                 "qproperty-iconSize: 24px 24px;"
                                 "border: 0px;"
@@ -83,11 +91,15 @@ void InteractiveTeachingWidget::initUi()
                                 "color: #243627;"
                                 "line-height: 38px;"
                                 "}");
+    pReturnLyt->addWidget(m_pReturnBtn);
+    pReturnLyt->addStretch();
 
     pLeftLyt->addWidget(m_pCourseCenterBtn);
     pLeftLyt->addWidget(m_pDistanceLearningBtn);
-    pLeftLyt->addWidget(m_pAiLearningBtn);
-    pLeftLyt->addWidget(m_pReturnBtn);
+    //pLeftLyt->addWidget(m_pAiLearningBtn);
+    pLeftLyt->addLayout(pAiLearningLyt);
+    //pLeftLyt->addWidget(m_pReturnBtn);
+    pLeftLyt->addLayout(pReturnLyt);
     pLeftLyt->addStretch();
 
     m_pCourseCenterWidget = new CourseCenterWidget(this);
@@ -102,6 +114,8 @@ void InteractiveTeachingWidget::initUi()
     pMainLyt->addWidget(pLeftWgt);
     pMainLyt->addWidget(m_pStackedWidget);
 
+//    pMainSplitter->addWidget(pLeftWgt);
+//    pMainSplitter->addWidget(m_pStackedWidget);
 }
 
 void InteractiveTeachingWidget::connectFun()
@@ -130,7 +144,7 @@ void InteractiveTeachingWidget::slotSwitchPage()
     {
         m_pStackedWidget->setCurrentWidget(m_pDistanceLearningWidget);
     }
-    else if (pBtn == m_pReturnBtn && m_pAiLearningWidget)
+    else if (pBtn == m_pAiLearningBtn && m_pAiLearningWidget)
     {
         m_pStackedWidget->setCurrentWidget(m_pAiLearningWidget);
     }
