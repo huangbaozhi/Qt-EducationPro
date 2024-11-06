@@ -11,9 +11,9 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
-    resize(900, 600);
-    setStyleSheet("background-color:#E0E6F6;");
-
+    //resize(900, 600);
+    setMinimumSize(900, 600);
+    setStyleSheet("background-color: #e4e4e4;");
     initUi();
     connectFun();
 }
@@ -26,32 +26,45 @@ MainWindow::~MainWindow()
 void MainWindow::initUi()
 {
     QWidget *pMainWgt = new QWidget(this);
-    pMainWgt->setFixedSize(900, 600);
+    pMainWgt->setMinimumSize(900, 600);
+    pMainWgt->setWindowFlags(Qt::FramelessWindowHint); // 设置窗口无边框
+    pMainWgt->setAttribute(Qt::WA_TranslucentBackground); // 设置窗口背景透明
+    (void)new MovebleWindow(this);
+
+    pMainWgt->setStyleSheet("QWidget { "
+                        "border: 1px solid transparent;"
+                        "background-color: transparent;"
+                        "}");
+
     QVBoxLayout *pMainLyt = new QVBoxLayout(pMainWgt);
     pMainLyt->setContentsMargins(0, 0, 0, 0);
 
     QWidget *pBtnWgt = new QWidget();
     m_pBtnWgt = pBtnWgt;
-    pBtnWgt->setFixedSize(900, 567);
+    pBtnWgt->setMinimumSize(900, 567);
     QGridLayout *pGridLyt = new QGridLayout(pBtnWgt);
     pGridLyt->setContentsMargins(0, 0, 0, 0);
 
-    m_pInteractiveTeachingBtn = new PushButton("", "#ffc0cb", "Pink", this);
+    m_pInteractiveTeachingBtn = new PushButton("", "#8c66ac", "Pink", this);
     m_pInteractiveTeachingBtn->setText("互动式教学");
 
-    m_pSimulationExperimentBtn = new PushButton("", "#ffff00", "Yellow", this);
+    m_pSimulationExperimentBtn = new PushButton("", "#9d7cb8", "Yellow", this);
     m_pSimulationExperimentBtn->setText("模拟实验");
 
-    m_pOnlineTestBtn = new PushButton("", "#0000ff", "Blue", this);
+    m_pOnlineTestBtn = new PushButton("", "#ad92c4", "Blue", this);
     m_pOnlineTestBtn->setText("在线测试");
 
-    m_pLearningResourcesBtn = new PushButton("", "#008000", "Green", this);
+    m_pLearningResourcesBtn = new PushButton("", "#bda7d0", "Green", this);
     m_pLearningResourcesBtn->setText("学习资源管理");
 
-    m_pInteractiveTeachingBtn->setFixedSize(250, 250); // 设置固定尺寸
-    m_pSimulationExperimentBtn->setFixedSize(200, 200);
-    m_pOnlineTestBtn->setFixedSize(150, 150);
-    m_pLearningResourcesBtn->setFixedSize(100, 100);
+    m_pInteractiveTeachingBtn->setMinimumSize(250, 250);
+    m_pInteractiveTeachingBtn->setMaximumSize(250, 250);
+    m_pSimulationExperimentBtn->setMinimumSize(200, 200);
+    m_pSimulationExperimentBtn->setMaximumSize(200, 200);
+    m_pOnlineTestBtn->setMinimumSize(150, 150);
+    m_pOnlineTestBtn->setMaximumSize(150, 150);
+    m_pLearningResourcesBtn->setMinimumSize(100, 100);
+    m_pLearningResourcesBtn->setMaximumSize(100, 100);
 
     pGridLyt->addWidget(m_pInteractiveTeachingBtn, 1, 0);
     pGridLyt->addWidget(m_pSimulationExperimentBtn, 1, 1);
@@ -64,6 +77,7 @@ void MainWindow::initUi()
     m_pLearningResourcesWidget = new LearningResourcesWidget(this);
 
     m_pStackedWidget = new QStackedWidget(this);
+    m_pStackedWidget->setStyleSheet("QStackedWidget{border: none;}");
     m_pStackedWidget->addWidget(pBtnWgt);
     m_pStackedWidget->addWidget(m_pInteractiveTeachingWidget);
     m_pStackedWidget->addWidget(m_pSimulationExperimentWidget);

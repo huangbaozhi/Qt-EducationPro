@@ -13,5 +13,9 @@
         <file>images/button/courseCenterBtn_2.png</file>
         <file>images/button/remoteCenterBtn_2.png</file>
         <file>images/button/returnBtn_2.png</file>
+        <file>images/LOGO.jpg</file>
+        <file>images/LOGO.png</file>
+        <file>images/logo.ico</file>
+        <file>images/logo_64.ico</file>
     </qresource>
 </RCC>

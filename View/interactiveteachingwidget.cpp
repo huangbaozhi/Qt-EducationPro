@@ -17,7 +17,7 @@
 InteractiveTeachingWidget::InteractiveTeachingWidget(QWidget *parent)
     : QWidget(parent)
 {
-    resize(900, 500);
+    setMinimumSize(900, 500);
 
     initUi();
     connectFun();
@@ -34,8 +34,8 @@ void InteractiveTeachingWidget::initUi()
 
 
     QWidget *pLeftWgt = new QWidget(this);
-    pLeftWgt->setFixedSize(150, 500);
-    pLeftWgt->setStyleSheet("QWidget{background-color: #FCFCFC; border: none; border-radius: 10px;}");
+    pLeftWgt->setMinimumSize(130, 500);
+    pLeftWgt->setStyleSheet("QWidget{background-color: #ffffff; border: none; border-radius: 10px;}");
 
     QVBoxLayout *pLeftLyt = new QVBoxLayout(pLeftWgt);
     pLeftLyt->setContentsMargins(10, 10, 0, 0);

@@ -21,41 +21,38 @@ CourseCenterWidget::CourseCenterWidget(QWidget *parent)
     , duration(0)
     , isPlaying(false)
 {
-
-    resize(900, 500);
     initUi();
-
 }
 
 void CourseCenterWidget::initUi()
 {
     QWidget *pMainWgt = new QWidget(this);
-    pMainWgt->setFixedSize(900, 500);
+    pMainWgt->setMinimumSize(900, 500);
     QGridLayout *pMainGridLyt = new QGridLayout(pMainWgt);
 
     QWidget *pVideo1 = new QWidget(this);
-    pVideo1->setFixedSize(220, 120);
-    pVideo1->setStyleSheet("QWidget{background-color:red;border-radius: 10px;}");
+    pVideo1->setMinimumSize(220, 120);
+    pVideo1->setStyleSheet("QWidget{background-color:#ffffff;border-radius: 10px;}");
 
     QWidget *pVideo2= new QWidget(this);
     pVideo2->setFixedSize(220, 120);
-    pVideo2->setStyleSheet("QWidget{background-color:red;border-radius: 10px;}");
+    pVideo2->setStyleSheet("QWidget{background-color:#ffffff;border-radius: 10px;}");
 
     QWidget *pVideo3 = new QWidget(this);
-    pVideo3->setFixedSize(220, 120);
-    pVideo3->setStyleSheet("QWidget{background-color:red;border-radius: 10px;}");
+    pVideo3->setMinimumSize(220, 120);
+    pVideo3->setStyleSheet("QWidget{background-color:#ffffff;border-radius: 10px;}");
 
     QWidget *pVideo4 = new QWidget(this);
-    pVideo4->setFixedSize(220, 120);
-    pVideo4->setStyleSheet("QWidget{background-color:red;border-radius: 10px;}");
+    pVideo4->setMinimumSize(220, 120);
+    pVideo4->setStyleSheet("QWidget{background-color:#ffffff;border-radius: 10px;}");
 
     QWidget *pVideo5 = new QWidget(this);
-    pVideo5->setFixedSize(220, 120);
-    pVideo5->setStyleSheet("QWidget{background-color:red;border-radius: 10px;}");
+    pVideo5->setMinimumSize(220, 120);
+    pVideo5->setStyleSheet("QWidget{background-color:#ffffff;border-radius: 10px;}");
 
     QWidget *pVideo6 = new QWidget(this);
-    pVideo6->setFixedSize(220, 120);
-    pVideo6->setStyleSheet("QWidget{background-color:red;border-radius: 10px;}");
+    pVideo6->setMinimumSize(220, 120);
+    pVideo6->setStyleSheet("QWidget{background-color:#ffffff;border-radius: 10px;}");
 
     pMainGridLyt->addWidget(pVideo1, 1, 1);
     pMainGridLyt->addWidget(pVideo2, 1, 2);

@@ -3,6 +3,9 @@
 
 #include <QWidget>
 
+class QTextEdit;
+class QPushButton;
+
 class DistanceLearningWidget : public QWidget
 {
     Q_OBJECT
@@ -13,6 +16,10 @@ signals:
 
 private:
     void initUi();
+
+private:
+    QTextEdit *m_pEnterCommentEdit;
+    QPushButton *m_pEnterCommentBtn;
 
 };
 

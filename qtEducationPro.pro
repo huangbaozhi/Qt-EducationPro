@@ -21,6 +21,7 @@ SOURCES += \
     View/simulationexperimentwidget.cpp \
     main.cpp \
     mainwindow.cpp \
+    moveblewindow.cpp
 
 HEADERS += \
     View/Components/pushbutton.h \
@@ -34,6 +35,7 @@ HEADERS += \
     View/simulationexperimentwidget.h \
     headerfile.h \
     mainwindow.h \
+    moveblewindow.h
 
 FORMS += \
 #    mainwindow.ui

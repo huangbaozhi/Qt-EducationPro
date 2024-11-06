@@ -8,6 +8,7 @@
 #include "View/onlinetestwidget.h"
 #include "View/simulationexperimentwidget.h"
 #include "View/menubarwidget.h"
+#include "moveblewindow.h"
 
 // sub widget
 #include "View/SubView/ailearningwidget.h"

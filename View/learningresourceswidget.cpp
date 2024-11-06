@@ -9,7 +9,7 @@
 
 LearningResourcesWidget::LearningResourcesWidget(QWidget *parent) : QWidget(parent)
 {
-    resize(900, 500);
+    setMinimumSize(900, 500);
     initUi();
 }
 
@@ -20,8 +20,6 @@ LearningResourcesWidget::~LearningResourcesWidget()
 
 void LearningResourcesWidget::initUi()
 {
-    //this->setFixedSize(900, 500);
-
     QLabel *pLabel = new QLabel(this);
     pLabel->setText("学习资源管理");
 

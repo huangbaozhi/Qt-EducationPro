@@ -5,6 +5,7 @@
 #include <QVBoxLayout>
 #include <QPushButton>
 #include <QLabel>
+#include <QImage>
 
 /**
  * @brief MenuBarWidget::MenuBarWidget
@@ -14,38 +15,46 @@
 
 MenuBarWidget::MenuBarWidget(QWidget *parent) : QWidget(parent)
 {
-    resize(900, 32);
     initUi();
-
     connectFun();
 }
 
 void MenuBarWidget::initUi()
 {
-    QHBoxLayout *pTopLyt = new QHBoxLayout(this);
+    QWidget *pTopWgt = new QWidget(this);
+    pTopWgt->setMinimumSize(900, 45);
+    pTopWgt->setStyleSheet("background-color:#bea7cf;border: none;");
+    QHBoxLayout *pTopLyt = new QHBoxLayout(pTopWgt);
+    pTopLyt->setContentsMargins(0, 0, 0, 0);
+
+    QImage *imgLogo = new QImage(":/images/LOGO.png");
+    //imgLogo->load(":/images/LOGO.jpg");
 
     m_pLogoLbl = new QLabel(this);
-    m_pLogoLbl->setFixedSize(32, 32);
-    m_pLogoLbl->setStyleSheet("QLabel{background-image: url(:/images/button/logo.png); border: 0px;}");
+    m_pLogoLbl->setFixedSize(42, 42);
+    m_pLogoLbl->setStyleSheet("QLabel{background-color:#bea7cf; border: 0px;}");
+    imgLogo->scaled(m_pLogoLbl->size(), Qt::KeepAspectRatio);
+    m_pLogoLbl->setScaledContents(true);
+    m_pLogoLbl->setPixmap(QPixmap::fromImage(*imgLogo));
 
     m_pSetBtn = new QPushButton(this);
-    m_pSetBtn->setFixedSize(32, 32);
-    m_pSetBtn->setStyleSheet("QPushButton{qproperty-icon: url(:/images/button/setBtn.png) center; qproperty-iconSize: 32px 32px; border: 0px;}");
+    m_pSetBtn->setMinimumSize(32, 32);
+    m_pSetBtn->setStyleSheet("QPushButton{background-color:#bea7cf;qproperty-icon: url(:/images/button/setBtn.png) center; qproperty-iconSize: 32px 32px; border: 0px;}");
     //m_pSetBtn->setStyleSheet("QPushButton{background-image: url(:/images/button/setBtn.png); border: 0px;}");
 
     m_pMaxBtn = new QPushButton(this);
-    m_pMaxBtn->setFixedSize(32, 32);
-    m_pMaxBtn->setStyleSheet("QPushButton{qproperty-icon: url(:/images/button/maximizationBtn.png) center; qproperty-iconSize: 32px 32px; border: 0px;}");
+    m_pMaxBtn->setMinimumSize(32, 32);
+    m_pMaxBtn->setStyleSheet("QPushButton{background-color:#bea7cf;qproperty-icon: url(:/images/button/maximizationBtn.png) center; qproperty-iconSize: 32px 32px; border: 0px;}");
     //m_pMaxBtn->setStyleSheet("QPushButton{background-image: url(:/images/button/maximizationBtn.png); border: 0px;}");
 
     m_pMinBtn = new QPushButton(this);
-    m_pMinBtn->setFixedSize(32, 32);
-    m_pMinBtn->setStyleSheet("QPushButton{qproperty-icon: url(:/images/button/minimizationBtn.png) center; qproperty-iconSize: 32px 32px; border: 0px;}");
+    m_pMinBtn->setMinimumSize(32, 32);
+    m_pMinBtn->setStyleSheet("QPushButton{background-color:#bea7cf;qproperty-icon: url(:/images/button/minimizationBtn.png) center; qproperty-iconSize: 32px 32px; border: 0px;}");
     //m_pMinBtn->setStyleSheet("QPushButton{background-image: url(:/images/button/minimizationBtn.png); border: 0px;}");
 
     m_pCloseBtn = new QPushButton(this);
-    m_pCloseBtn->setFixedSize(32, 32);
-    m_pCloseBtn->setStyleSheet("QPushButton{qproperty-icon: url(:/images/button/closeBtn.png) center; qproperty-iconSize: 32px 32px; border: 0px;}");
+    m_pCloseBtn->setMinimumSize(32, 32);
+    m_pCloseBtn->setStyleSheet("QPushButton{background-color:#bea7cf;qproperty-icon: url(:/images/button/closeBtn.png) center; qproperty-iconSize: 32px 32px; border: 0px;}");
     //m_pCloseBtn->setStyleSheet("QPushButton{background-image: url(:/images/button/closeBtn.png); border: 0px;}");
 
     pTopLyt->addWidget(m_pLogoLbl);
@@ -54,6 +63,8 @@ void MenuBarWidget::initUi()
     pTopLyt->addWidget(m_pMaxBtn);
     pTopLyt->addWidget(m_pMinBtn);
     pTopLyt->addWidget(m_pCloseBtn);
+
+    setLayout(pTopLyt);
 }
 
 void MenuBarWidget::connectFun()
