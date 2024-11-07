@@ -11,8 +11,7 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
-    //resize(900, 600);
-    setMinimumSize(900, 600);
+    setMinimumSize(1260, 840);
     setStyleSheet("background-color: #e4e4e4;");
     initUi();
     connectFun();
@@ -26,7 +25,7 @@ MainWindow::~MainWindow()
 void MainWindow::initUi()
 {
     QWidget *pMainWgt = new QWidget(this);
-    pMainWgt->setMinimumSize(900, 600);
+    pMainWgt->setMinimumSize(1260, 840);
     pMainWgt->setWindowFlags(Qt::FramelessWindowHint); // 设置窗口无边框
     pMainWgt->setAttribute(Qt::WA_TranslucentBackground); // 设置窗口背景透明
     (void)new MovebleWindow(this);
@@ -45,26 +44,26 @@ void MainWindow::initUi()
     QGridLayout *pGridLyt = new QGridLayout(pBtnWgt);
     pGridLyt->setContentsMargins(0, 0, 0, 0);
 
-    m_pInteractiveTeachingBtn = new PushButton("", "#8c66ac", "Pink", this);
+    m_pInteractiveTeachingBtn = new PushButton("", "#9D7CB8", "Pink", this);
     m_pInteractiveTeachingBtn->setText("互动式教学");
 
-    m_pSimulationExperimentBtn = new PushButton("", "#9d7cb8", "Yellow", this);
+    m_pSimulationExperimentBtn = new PushButton("", "#9D7CB8", "Yellow", this);
     m_pSimulationExperimentBtn->setText("模拟实验");
 
-    m_pOnlineTestBtn = new PushButton("", "#ad92c4", "Blue", this);
+    m_pOnlineTestBtn = new PushButton("", "#9D7CB8", "Blue", this);
     m_pOnlineTestBtn->setText("在线测试");
 
-    m_pLearningResourcesBtn = new PushButton("", "#bda7d0", "Green", this);
+    m_pLearningResourcesBtn = new PushButton("", "#9D7CB8", "Green", this);
     m_pLearningResourcesBtn->setText("学习资源管理");
 
-    m_pInteractiveTeachingBtn->setMinimumSize(250, 250);
-    m_pInteractiveTeachingBtn->setMaximumSize(250, 250);
-    m_pSimulationExperimentBtn->setMinimumSize(200, 200);
-    m_pSimulationExperimentBtn->setMaximumSize(200, 200);
-    m_pOnlineTestBtn->setMinimumSize(150, 150);
-    m_pOnlineTestBtn->setMaximumSize(150, 150);
-    m_pLearningResourcesBtn->setMinimumSize(100, 100);
-    m_pLearningResourcesBtn->setMaximumSize(100, 100);
+    m_pInteractiveTeachingBtn->setMinimumSize(243, 297);
+    m_pInteractiveTeachingBtn->setMaximumSize(243, 297);
+    m_pSimulationExperimentBtn->setMinimumSize(243, 297);
+    m_pSimulationExperimentBtn->setMaximumSize(243, 297);
+    m_pOnlineTestBtn->setMinimumSize(243, 297);
+    m_pOnlineTestBtn->setMaximumSize(243, 297);
+    m_pLearningResourcesBtn->setMinimumSize(243, 297);
+    m_pLearningResourcesBtn->setMaximumSize(243, 297);
 
     pGridLyt->addWidget(m_pInteractiveTeachingBtn, 1, 0);
     pGridLyt->addWidget(m_pSimulationExperimentBtn, 1, 1);

@@ -16,6 +16,13 @@ PushButton::PushButton(const QString &style, const QString &color, const QString
             background-color: %2;
             border: none;
             border-radius: %3px; /* 圆形 */
+            font-family: PingFangSC-regular;
+            border: 1px solid rgba(187,187,187,1);
+            line-height: 50px;
+            color: rgba(255,255,255,0.94);
+            font-size: 36px;
+            text-align: center;
+            font-family: SourceHanSansSC-regular;
         }
         PushButton:pressed {
             background-color: %4; /* 按下时的颜色，稍微深一点 */
@@ -23,7 +30,7 @@ PushButton::PushButton(const QString &style, const QString &color, const QString
         PushButton:hover {
             background-color: %5; /* 鼠标悬停时的颜色，稍微浅一点 */
         }
-    )").arg(style).arg(color).arg(50).arg(darkerColor.name()).arg(lighterColor.name());
+    )").arg(style).arg(color).arg(10).arg(darkerColor.name()).arg(lighterColor.name());
 
     setStyleSheet(styleSheet);
 }

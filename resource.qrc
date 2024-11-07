@@ -17,5 +17,9 @@
         <file>images/LOGO.png</file>
         <file>images/logo.ico</file>
         <file>images/logo_64.ico</file>
+        <file>images/new_button/close_button.png</file>
+        <file>images/new_button/maximization_button.png</file>
+        <file>images/new_button/minimization_button.png</file>
+        <file>images/new_button/set_button.png</file>
     </qresource>
 </RCC>
