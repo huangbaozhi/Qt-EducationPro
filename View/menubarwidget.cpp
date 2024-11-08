@@ -41,6 +41,7 @@ void MenuBarWidget::initUi()
     m_pSetBtn->setStyleSheet("QPushButton{background-image: url(:/images/new_button/set_button.png); border: 0px;}");
 
     m_pMaxBtn = new QPushButton(this);
+    m_pMaxBtn->hide();
     m_pMaxBtn->setMinimumSize(65, 65);
     //m_pMaxBtn->setStyleSheet("QPushButton{background-color:#bea7cf;qproperty-icon: url(:/images/button/maximizationBtn.png) center; qproperty-iconSize: 32px 32px; border: 0px;}");
     m_pMaxBtn->setStyleSheet("QPushButton{background-image: url(:/images/new_button/maximization_button.png); border: 0px;}");

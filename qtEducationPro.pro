@@ -14,6 +14,7 @@ SOURCES += \
     View/SubView/ailearningwidget.cpp \
     View/SubView/coursecenterwidget.cpp \
     View/SubView/distancelearningwidget.cpp \
+    View/SubView/videocoverwidget.cpp \
     View/interactiveteachingwidget.cpp \
     View/learningresourceswidget.cpp \
     View/menubarwidget.cpp \
@@ -28,6 +29,7 @@ HEADERS += \
     View/SubView/ailearningwidget.h \
     View/SubView/coursecenterwidget.h \
     View/SubView/distancelearningwidget.h \
+    View/SubView/videocoverwidget.h \
     View/interactiveteachingwidget.h \
     View/learningresourceswidget.h \
     View/menubarwidget.h \

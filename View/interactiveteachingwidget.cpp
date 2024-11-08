@@ -44,14 +44,18 @@ void InteractiveTeachingWidget::initUi()
     pCourseCenterLyt->setContentsMargins(0, 0, 0, 0);
     m_pCourseCenterBtn = new QPushButton(this);
     m_pCourseCenterBtn->setText("课程中心");
-    m_pCourseCenterBtn->setStyleSheet("QPushButton{qproperty-icon: url(:/images/button/courseCenterBtn.png) center;"
-                                      "qproperty-iconSize: 20px 20px;"
-                                      "border: 0px;"
-                                      "font-family: Microsoft YaHei;"
-                                      "font-weight: 400;"
-                                      "font-size: 15px;"
-                                      "color: #243627;"
-                                      "line-height: 38px;"
+    m_pCourseCenterBtn->setFixedSize(172, 42);
+    m_pCourseCenterBtn->setStyleSheet("QPushButton{qproperty-icon: url(:/images/button/read.png);"
+                                      "qproperty-iconSize: 32px 32px;"
+                                      "padding-left: 9px;"
+                                      "line-height: 20px;"
+                                      "border-radius: 10px;"
+                                      "background-color: rgba(255,255,255,0.94);"
+                                      "color: rgba(16,16,16,1);"
+                                      "font-size: 14px;"
+                                      "text-align: center;"
+                                      "font-family: PingFangSC-regular;"
+                                      "border: 1px solid rgba(187,187,187,1);"
                                       "}");
     pCourseCenterLyt->addWidget(m_pCourseCenterBtn);
     pCourseCenterLyt->addStretch();
@@ -60,14 +64,19 @@ void InteractiveTeachingWidget::initUi()
     pDistanceLearningLyt->setContentsMargins(0, 0, 0, 0);
     m_pDistanceLearningBtn = new QPushButton(this);
     m_pDistanceLearningBtn->setText("远程教学");
-    m_pDistanceLearningBtn->setStyleSheet("QPushButton{qproperty-icon: url(:/images/button/remoteCenterBtn.png) center; "
-                                          "qproperty-iconSize: 24px 24px; "
+    m_pDistanceLearningBtn->setFixedSize(172, 42);
+    m_pDistanceLearningBtn->setStyleSheet("QPushButton{qproperty-icon: url(:/images/button/remoteCenterBtn.png) left; "
+                                          "qproperty-iconSize: 32px 32px; "
                                           "border: 0px;"
-                                          "font-family: Microsoft YaHei;"
-                                          "font-weight: 400;"
-                                          "font-size: 15px;"
-                                          "color: #243627;"
-                                          "line-height: 38px;"
+                                          "padding-left: 0px;"
+                                          "line-height: 20px;"
+                                          "border-radius: 10px;"
+                                          "background-color: rgba(255,255,255,0.94);"
+                                          "color: rgba(16,16,16,1);"
+                                          "font-size: 14px;"
+                                          "text-align: center;"
+                                          "font-family: PingFangSC-regular;"
+                                          "border: 1px solid rgba(187,187,187,1);"
                                           "}");
     pDistanceLearningLyt->addWidget(m_pDistanceLearningBtn);
     pDistanceLearningLyt->addStretch();
@@ -75,31 +84,53 @@ void InteractiveTeachingWidget::initUi()
     QHBoxLayout *pAiLearningLyt = new QHBoxLayout();
     pAiLearningLyt->setContentsMargins(0, 0, 0, 0);
     m_pAiLearningBtn = new QPushButton(this);
-    m_pAiLearningBtn->setText("AI    教学");
-    m_pAiLearningBtn->setStyleSheet("QPushButton{qproperty-icon: url(:/images/button/aiLearningBtn.png) center;"
-                                    "qproperty-iconSize: 24px 24px;"
+    m_pAiLearningBtn->setText("AI  搜索");
+    m_pAiLearningBtn->setFixedSize(172, 42);
+    m_pAiLearningBtn->setStyleSheet("QPushButton{qproperty-icon: url(:/images/button/aiLearningBtn.png);"
+                                    "qproperty-iconSize: 32px 32px;"
                                     "border: 0px;"
-                                    "font-family: Microsoft YaHei;"
-                                    "font-weight: 400;"
-                                    "font-size: 15px;"
-                                    "color: #243627;"
-                                    "line-height: 38px;"
+                                    "padding-left: 0px;"
+                                    "line-height: 20px;"
+                                    "border-radius: 10px;"
+                                    "background-color: rgba(255,255,255,0.94);"
+                                    "color: rgba(16,16,16,1);"
+                                    "font-size: 14px;"
+                                    "text-align: center;"
+                                    "font-family: PingFangSC-regular;"
+                                    "border: 1px solid rgba(187,187,187,1);"
+                                    "}"
+                                    "QPushButton:checked{"
+                                    "padding-left: 9px;"
+                                    "line-height: 20px;"
+                                    "border-radius: 10px;"
+                                    "background-color: rgba(206,189,219,1);"
+                                    "color: rgba(16,16,16,1);"
+                                    "font-size: 14px;"
+                                    "text-align: center;"
+                                    "font-family: PingFangSC-regular;"
+                                    "border: 1px solid rgba(187,187,187,1);"
                                     "}");
+
     pAiLearningLyt->addWidget(m_pAiLearningBtn);
     pAiLearningLyt->addStretch();
 
     QHBoxLayout *pReturnLyt = new QHBoxLayout();
     pReturnLyt->setContentsMargins(0, 0, 0, 0);
     m_pReturnBtn = new QPushButton(this);
-    m_pReturnBtn->setText("返        回");
-    m_pReturnBtn->setStyleSheet("QPushButton{qproperty-icon: url(:/images/button/returnBtn.png) center;"
-                                "qproperty-iconSize: 24px 24px;"
+    m_pReturnBtn->setText("回到首页");
+    m_pReturnBtn->setFixedSize(172, 42);
+    m_pReturnBtn->setStyleSheet("QPushButton{qproperty-icon: url(:/images/button/returnBtn.png);"
+                                "qproperty-iconSize: 32px 32px;"
                                 "border: 0px;"
-                                "font-family: Microsoft YaHei;"
-                                "font-weight: 400;"
-                                "font-size: 15px;"
-                                "color: #243627;"
-                                "line-height: 38px;"
+                                "padding-left: 9px;"
+                                "line-height: 20px;"
+                                "border-radius: 10px;"
+                                "background-color: rgba(255,255,255,0.94);"
+                                "color: rgba(16,16,16,1);"
+                                "font-size: 14px;"
+                                "text-align: center;"
+                                "font-family: PingFangSC-regular;"
+                                "border: 1px solid rgba(187,187,187,1);"
                                 "}");
     pReturnLyt->addWidget(m_pReturnBtn);
     pReturnLyt->addStretch();
@@ -116,13 +147,21 @@ void InteractiveTeachingWidget::initUi()
     m_pDistanceLearningWidget = new DistanceLearningWidget(this);
     m_pAiLearningWidget = new AiLearningWidget(this);
 
-    m_pStackedWidget = new QStackedWidget(this);
+    QWidget *pRightWgt = new QWidget(this);
+    m_pStackedWidget = new QStackedWidget(pRightWgt);
+    pRightWgt->setFixedSize(1000, 735);
+    pRightWgt->setStyleSheet("QWidget { "
+                                    "border-radius: 10px;"
+                                    "background-color: rgba(255,255,255,1);"
+                                    "border: 0px solid rgba(187,187,187,1);"
+                                    "}");
     m_pStackedWidget->addWidget(m_pCourseCenterWidget);
     m_pStackedWidget->addWidget(m_pDistanceLearningWidget);
     m_pStackedWidget->addWidget(m_pAiLearningWidget);
 
     pMainLyt->addWidget(pLeftWgt);
-    pMainLyt->addWidget(m_pStackedWidget);
+    //pMainLyt->addWidget(m_pStackedWidget);
+    pMainLyt->addWidget(pRightWgt);
 }
 
 void InteractiveTeachingWidget::connectFun()

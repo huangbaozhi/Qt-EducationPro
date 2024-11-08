@@ -14,6 +14,7 @@
 #include "View/SubView/ailearningwidget.h"
 #include "View/SubView/coursecenterwidget.h"
 #include "View/SubView/distancelearningwidget.h"
+#include "View/SubView/videocoverwidget.h"
 
 // component
 #include "View/Components/pushbutton.h"

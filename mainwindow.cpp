@@ -41,19 +41,20 @@ void MainWindow::initUi()
     QWidget *pBtnWgt = new QWidget();
     m_pBtnWgt = pBtnWgt;
     pBtnWgt->setMinimumSize(900, 567);
+    pBtnWgt->setMinimumSize(900, 567);
     QGridLayout *pGridLyt = new QGridLayout(pBtnWgt);
     pGridLyt->setContentsMargins(0, 0, 0, 0);
 
-    m_pInteractiveTeachingBtn = new PushButton("", "#9D7CB8", "Pink", this);
+    m_pInteractiveTeachingBtn = new PushButton("", "#8d64ac", "Pink", this);
     m_pInteractiveTeachingBtn->setText("互动式教学");
 
-    m_pSimulationExperimentBtn = new PushButton("", "#9D7CB8", "Yellow", this);
+    m_pSimulationExperimentBtn = new PushButton("", "#ae91c4", "Yellow", this);
     m_pSimulationExperimentBtn->setText("模拟实验");
 
-    m_pOnlineTestBtn = new PushButton("", "#9D7CB8", "Blue", this);
+    m_pOnlineTestBtn = new PushButton("", "#8d64ac", "Blue", this);
     m_pOnlineTestBtn->setText("在线测试");
 
-    m_pLearningResourcesBtn = new PushButton("", "#9D7CB8", "Green", this);
+    m_pLearningResourcesBtn = new PushButton("", "#ae91c4", "Green", this);
     m_pLearningResourcesBtn->setText("学习资源管理");
 
     m_pInteractiveTeachingBtn->setMinimumSize(243, 297);
@@ -94,6 +95,8 @@ void MainWindow::initUi()
 void MainWindow::connectFun()
 {
     connect(m_pMenuBarWidget, &MenuBarWidget::signCloseed, this, &MainWindow::close);
+    //connect(m_pMenuBarWidget, &MenuBarWidget::signMaximizationed, this, &MainWindow::showMaximized);
+    connect(m_pMenuBarWidget, &MenuBarWidget::signMinimizationed, this, &MainWindow::showMinimized);
 
     connect(m_pInteractiveTeachingBtn, &QPushButton::clicked, this, &MainWindow::slotSwitchPage);
     connect(m_pSimulationExperimentBtn, &QPushButton::clicked, this, &MainWindow::slotSwitchPage);
@@ -101,6 +104,7 @@ void MainWindow::connectFun()
     connect(m_pLearningResourcesBtn, &QPushButton::clicked, this, &MainWindow::slotSwitchPage);
 
     connect(m_pInteractiveTeachingWidget, &InteractiveTeachingWidget::signReturn, this, &MainWindow::slotReturnCurrentPage);
+
 }
 
 void MainWindow::slotSwitchPage()
